@@ -1,0 +1,31 @@
+button {
+  margin-right: 0.3em;
+}
+
+caption {
+  display: none;
+}
+
+table {
+  margin-top: 1em;
+  border: 0.1em solid #bbb;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 0.5em 1em;
+  }
+
+  thead {
+    background: #bbb;
+  }
+
+  tbody tr:nth-child(even) {
+    background: #eee;
+  }
+
+  td.qty,
+  td.price {
+    text-align: right;
+  }
+}
