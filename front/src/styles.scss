@@ -2,6 +2,12 @@
 
 @import "../node_modules/normalize.css/normalize.css";
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: sans-serif;
 }
@@ -44,4 +50,10 @@ button {
       }
     }
   }
+}
+
+input {
+  border: 0.1em solid #ddd;
+  padding: 0.5em 1em;
+  width: 100%;
 }
