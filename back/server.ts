@@ -1,11 +1,12 @@
 import express from "express";
 import serveIndex from "serve-index";
-import cors from "cors";
+import path from "path";
+// import cors from "cors";
 import { Article } from "../front/src/app/interfaces/article";
 
 const app = express();
 const port = 3000;
-const www = "www";
+const www = "../front/dist/front";
 
 let articles: Article[] = [
   {
@@ -30,7 +31,7 @@ let articles: Article[] = [
 
 let lastId = 2;
 
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 
 app.use((req, res, next) => {
@@ -38,7 +39,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/ws', (req, res, next) => {
+app.use("/ws", (req, res, next) => {
   setTimeout(next, 2000);
 });
 
@@ -58,6 +59,10 @@ app.delete("/ws/articles", (req, res) => {
   const ids: string[] = req.body;
   articles = articles.filter((a) => !ids.includes(a.id));
   res.status(204).end();
+});
+
+app.get(["/legal", "/article/*"], (req, res) => {
+  res.sendFile(path.resolve(__dirname, www + "/index.html"));
 });
 
 app.use(express.static(www));

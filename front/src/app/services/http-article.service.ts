@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ArticleService } from './article.service';
 import { Article } from '../interfaces/article';
+import { environment } from 'src/environments/environment';
+
+const url = '/ws/articles';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +17,7 @@ export class HttpArticleService extends ArticleService {
   }
 
   retrieveAll(): void {
-    this.http.get<Article[]>('http://localhost:3000/ws/articles').subscribe({
+    this.http.get<Article[]>(url).subscribe({
       next: (data) => {
         console.log('data: ', data);
         this.articles$.next(data);
@@ -31,7 +34,7 @@ export class HttpArticleService extends ArticleService {
   add(article: Article): void {
     super.add(article);
     this.http
-      .post<void>('http://localhost:3000/ws/articles', article)
+      .post<void>(url, article)
       .subscribe({
         next: () => {
           console.log('created done.');
@@ -52,7 +55,7 @@ export class HttpArticleService extends ArticleService {
       body: ids,
     };
     this.http
-      .delete<void>('http://localhost:3000/ws/articles', options)
+      .delete<void>(url, options)
       .subscribe({
         next: () => {
           console.log('created done.');
