@@ -38,6 +38,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/ws', (req, res, next) => {
+  setTimeout(next, 2000);
+});
+
 app.get("/ws/articles", (req, res) => {
   res.json(articles);
 });
