@@ -4,6 +4,18 @@
     <label>
       <div>Nom</div>
       <input type="text" appAutofocus formControlName="name" />
+      <div class="error">
+        <ng-container *ngIf="f.controls.name.touched">
+          <span *ngIf="f.controls.name.errors?.required">
+            oups... champ requis.
+          </span>
+          <span *ngIf="f.controls.name.errors?.maxlength">
+            oups... trop long :
+            {{ f.controls.name.errors?.maxlength.actualLength }} >
+            {{ f.controls.name.errors?.maxlength.requiredLength }} caractères.
+          </span>
+        </ng-container>
+      </div>
     </label>
     <label>
       <div>Prix</div>
