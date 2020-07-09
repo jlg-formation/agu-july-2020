@@ -3,6 +3,7 @@
   <nav>
     <button>Rafraichir</button>
     <button routerLink="/article/create">Ajouter</button>
+    <button (click)="remove()" [hidden]="selectedArticles.length === 0">Supprimer</button>
   </nav>
   <table>
     <caption>
@@ -16,8 +17,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let a of articleService.articles">
-        <td class="name">{{ a.name | ellipsis : 15 }}</td>
+      <tr
+        (click)="toggle(a)"
+        [class.selected]="selectedArticles.includes(a)"
+        *ngFor="let a of articleService.articles"
+      >
+        <td class="name">{{ a.name | ellipsis: 15 }}</td>
         <td class="price">{{ a.price | currency }}</td>
         <td class="qty">{{ a.qty }}</td>
       </tr>

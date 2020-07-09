@@ -20,8 +20,19 @@ table {
     background: #bbb;
   }
 
-  tbody tr:nth-child(even) {
-    background: #eee;
+  tbody tr {
+    cursor: pointer;
+
+    &:nth-child(even) {
+      background: #eee;
+    }
+    &:hover {
+      background: #ddd;
+    }
+
+    &.selected {
+      background: #ccc;
+    }
   }
 
   td.qty,
