@@ -1,7 +1,7 @@
 <main>
   <h1>Liste des articles</h1>
   <nav>
-    <button>Rafraichir</button>
+    <button (click)="articleService.refresh()">Rafraichir</button>
     <button routerLink="/article/create">Ajouter</button>
     <button (click)="remove()" [hidden]="selectedArticles.length === 0">Supprimer</button>
   </nav>
