@@ -13,7 +13,7 @@
       <div>Quantité</div>
       <input type="number" min="0" formControlName="qty" />
     </label>
-    <button type="submit" class="primary">Créer</button>
+    <button [disabled]="f.invalid" type="submit" class="primary">Créer</button>
   </form>
 </main>
 <!-- {{ f.value | json }} -->
