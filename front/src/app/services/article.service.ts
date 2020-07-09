@@ -7,28 +7,14 @@ import { Article } from '../interfaces/article';
 export class ArticleService {
   articles: Article[] = this.getArticles();
 
-  constructor() {}
+  constructor() {
+    console.log('article service');
+  }
 
   getArticles(): Article[] {
     const str = localStorage.getItem('articles');
     if (!str) {
-      return [
-        {
-          name: 'Tournevis',
-          price: 2.44,
-          qty: 234,
-        },
-        {
-          name: 'Tournevis Cruciforme',
-          price: 4,
-          qty: 1000,
-        },
-        {
-          name: 'Pince',
-          price: 23.3,
-          qty: 46,
-        },
-      ];
+      return [];
     }
     return JSON.parse(str) as Article[];
   }
