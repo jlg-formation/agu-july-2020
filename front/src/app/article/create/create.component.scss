@@ -1,12 +1,22 @@
+:host {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+main {
+  width: 20em;
+}
+
 form {
-    display: flex;
-    flex-flow: column;
+  display: flex;
+  flex-flow: column;
 }
 
 label {
-    padding-bottom: 1em;
+  padding-bottom: 1em;
 }
 
 button {
-    margin-top: 2em;
+  margin-top: 2em;
 }
