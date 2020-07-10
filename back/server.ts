@@ -40,7 +40,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/ws", (req, res, next) => {
-  setTimeout(next, 2000);
+  setTimeout(next, 0);
 });
 
 app.get("/ws/articles", (req, res) => {
