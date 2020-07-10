@@ -11,6 +11,18 @@ describe('ArticleService', () => {
   });
 
   it('should be created', () => {
+    localStorage.clear();
+    expect(service).toBeTruthy();
+  });
+
+  it('should test getArticle without localstorage', () => {
+    localStorage.clear();
+    localStorage.setItem('articles', JSON.stringify([]));
+    expect(service).toBeTruthy();
+  });
+
+  it('should test refresh', () => {
+    service.refresh();
     expect(service).toBeTruthy();
   });
 });

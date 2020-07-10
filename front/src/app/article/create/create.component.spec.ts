@@ -24,4 +24,9 @@ describe('CreateComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call submit', () => {
+    component.submit();
+    expect(component).toBeTruthy();
+  });
 });
